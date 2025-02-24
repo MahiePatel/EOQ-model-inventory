@@ -84,9 +84,9 @@ def predict_sales_during_promotion(avg_daily_demand, sales_uplift, promo_duratio
 # --- Streamlit app ---
 st.title("Inventory Management Tool")
 
-code_selection = st.selectbox("Select Code to Run:", ["Code 1", "Code 2", "Code 3", "Code 4"])
+code_selection = st.selectbox("Select Code to Run:", ["Basic inventory analysis with EOQ optimization", "Advanced inventory analysis, cost breakdowns, and visualizations", "Reorder point calculation and reorder date estimation", "EOQ calculations considering sales promotions"])
 
-if code_selection == "Code 1":
+if code_selection == "Basic inventory analysis with EOQ optimization":
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     if uploaded_file is not None:
         try:
@@ -107,7 +107,7 @@ if code_selection == "Code 1":
         except Exception as e:
             st.error(f"An error occurred: {e}")
 
-if code_selection == "Code 2":
+if code_selection == "Advanced inventory analysis, cost breakdowns, and visualizations":
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     if uploaded_file is not None:
         try:
@@ -179,7 +179,7 @@ if code_selection == "Code 2":
     
  # Part 5: Streamlit App (Continuation and Code 3 & 4)
 
-elif code_selection == "Code 3":
+elif code_selection == "Reorder point calculation and reorder date estimation":
     st.header("Code 3: Reorder Point and Date Calculation")
     holding_cost = st.number_input("Holding Cost (per unit per year)", value=0.1)
     ordering_cost = st.number_input("Ordering Cost (per order)", value=10)
@@ -201,7 +201,7 @@ elif code_selection == "Code 3":
         except Exception as e:
             st.error(f"An error occurred: {e}")
 
-elif code_selection == "Code 4":
+elif code_selection == "EOQ calculations considering sales promotions":
     st.header("Code 4: EOQ During Promotion")
     avg_daily_demand = st.number_input("Enter the average daily demand (units): ", value=100)
     sales_uplift = st.number_input("Enter the sales uplift during promotion (as a decimal, e.g., 0.5 for 50%): ", value=0.5)
